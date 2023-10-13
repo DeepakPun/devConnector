@@ -1,0 +1,4 @@
+{
+  "mongoDevURI": "mongodb://localhost:27017/devConnectorAPIDB",
+  "mongoProdURI": "mongodb+srv://YelpCamp:giCs40WY9IChC9hG@cluster0.e7w4ugn.mongodb.net/devConnectorAPIDB?retryWrites=true&w=majority"
+}
