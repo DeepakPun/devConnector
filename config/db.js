@@ -4,7 +4,12 @@ const db = config.get('mongoDevURI')
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(db)
+    const conn = await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    })
 
     console.log(`Connected to Mongo`.cyan.underline)
   } catch (error) {
