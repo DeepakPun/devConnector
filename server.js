@@ -12,7 +12,7 @@ connectDB()
 app.use(express.json({ extended: false }))
 
 app.get('/', (req, res) => {
-  res.send('API is up and running')
+  res.status(200).json({ message: 'OK' })
 })
 
 // Define and Mount routes
