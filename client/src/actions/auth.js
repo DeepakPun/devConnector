@@ -8,6 +8,7 @@ import {
   LOGIN_FAIL,
   USER_LOADED,
   LOGOUT,
+  CLEAR_PROFILE,
 } from './types'
 import setAuthToken from '../utils/setAuthToken'
 // Load User
@@ -23,8 +24,6 @@ export const loadUser = () => async dispatch => {
       type: USER_LOADED,
       payload: res.data,
     })
-
-    dispatch(loadUser())
   } catch (error) {
     dispatch({ type: AUTH_ERROR })
   }
@@ -58,7 +57,7 @@ export const register =
         errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
       }
 
-      await dispatch({ type: REGISTER_FAIL })
+      dispatch({ type: REGISTER_FAIL })
     }
   }
 
@@ -94,5 +93,6 @@ export const login = (email, password) => async dispatch => {
 
 // Logout user / Clear Profile
 export const logout = () => dispatch => {
+  dispatch({ type: CLEAR_PROFILE })
   dispatch({ type: LOGOUT })
 }
